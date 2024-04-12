@@ -1,0 +1,38 @@
+#### general settings
+gpu_ids: [0]
+
+#### network structures
+KernelWizard:
+  pretrained: experiments/MY_PRO/models/latest_G.pth
+  input_nc: 3
+  nf: 64
+  front_RBs: 10
+  back_RBs: 20
+  N_frames: 1
+  kernel_dim: 512
+  use_vae: false
+  KernelExtractor:
+    norm: none
+    use_sharp: true
+    n_blocks: 4
+    padding_type: reflect
+    use_dropout: false
+  Adapter:
+    norm: none
+    use_dropout: false
+EDnet:
+    batch_size: 6
+    nz : 250
+    gamma_factor: 2.2
+    K: 25
+    img_size: [256,256]
+    nef: 32
+    kernel_img : [33,33]
+    n_iters : 30
+    sat_threshold : 0.99
+    reg_factor : 1e-3
+    optim_iters : True
+    dilation : False
+    smoothing : True
+    erosion : True
+    savei : data1/xin
